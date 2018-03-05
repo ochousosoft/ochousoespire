@@ -12,6 +12,7 @@ import { DashboardRoutes } from './dashboard-routing.module';
 //Dashboard Component
 import { DashboardComponent } from './dashboard.component';
 
+
 @NgModule({
     imports: [
         RouterModule.forChild(DashboardRoutes),

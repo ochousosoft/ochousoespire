@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 import { AuthenticationRoutes } from './authentication.routing';
@@ -15,7 +16,8 @@ import { Page404Component } from './404/404.component';
 @NgModule({
     imports: [
         RouterModule.forChild(AuthenticationRoutes),
-        FormsModule
+        FormsModule,
+        TranslateModule
     ],
     declarations: [
         SignInComponent,

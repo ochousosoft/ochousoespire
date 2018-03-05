@@ -19,12 +19,15 @@ export class CommonLayoutComponent implements OnInit {
     public searchActived : any;
 
     Auth;
+    username:string = '';
 
     constructor(
         private authenticationService: AuthenticationService,
         private router: Router
     ) {
+        debugger
         this.Auth = authenticationService;
+        this.username = this.Auth.getUserName();
 
         this.app = {
             layout: {
