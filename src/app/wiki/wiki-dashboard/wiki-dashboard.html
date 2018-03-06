@@ -1,0 +1,43 @@
+<div class="container-fluid">
+	<div class="page-title">
+		<h4>Wiki</h4>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group input-group">
+				<input type="text" class="form-control" placeholder="Input Group Button">
+				<div class=" input-group-addon">
+					<button class="btn" type="submit">
+						<i class="ti-search"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4"  *ngFor="let postCol of postsStructure">
+			<div class="card" *ngFor="let post of postCol">
+				<div class="portlet">
+					<ul class="portlet-item">
+						<li>
+							<a href="" class="btn btn-icon btn-flat btn-rounded" card-portlet-delete>
+								<i class="ti-close"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="card-block" style="font-size:0.8em;">
+					<h4 class="card-title">{{post.title}}</h4>
+					{{ post.modification_date | date:'dd/MM/yyyy hh:MM:ss'}}
+					<div class="mrg-top-20">
+						<div style="max-height: 200px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" [innerHTML]="post.content"></div>
+						
+						<div class="mrg-top-25">
+							<a [routerLink]="['/wiki/wiki-post', post.id]" class="btn btn-outline-primary btn-sm no-mrg-btm">
+								<i class="fa fa-edit"></i>&nbsp;Editar
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

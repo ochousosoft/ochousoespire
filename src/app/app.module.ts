@@ -31,6 +31,8 @@ import { Constants } from './providers/config/constants';
 import { LoginRestService } from './providers/rest/login-rest.service';
 import { PostsRestService } from './providers/rest/posts-rest.service';
 
+import { SessionUserMem } from './providers/memory/session-user.memory';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -67,7 +69,10 @@ export function HttpLoaderFactory(http: HttpClient) {
         AuthenticationService,
         UserService,
         LoginRestService,
-        PostsRestService
+        PostsRestService,
+
+
+        SessionUserMem
     ],
     bootstrap: [AppComponent]
 })

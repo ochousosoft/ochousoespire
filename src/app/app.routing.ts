@@ -48,6 +48,10 @@ export const AppRoutes: Routes = [
             {
                 path: 'extras',
                 loadChildren: './extras/extras.modules#ExtrasModule'
+            },
+            {
+                path: 'wiki',
+                loadChildren: './wiki/wiki.modules#Wiki_Module'
             }
         ],
         canActivate: [AuthGuard] 
