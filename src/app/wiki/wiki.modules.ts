@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { QuillModule } from 'ngx-quill';
 
 // Import Angular plugin.
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 import { ToastyModule } from 'ng2-toasty';
 
 import { Cards_Directives } from '../shared/directives/cards.directive';
@@ -31,9 +32,8 @@ import { WikiPostComponent } from './wiki-post/wiki-post.component';
         NgbModule,
         CustomFormsModule,
         FormWizardModule,
-        FroalaEditorModule.forRoot(), 
-        FroalaViewModule.forRoot(),
-        ToastyModule
+        ToastyModule,
+        QuillModule
     ],
     declarations: [
         WikiDashboardComponent,

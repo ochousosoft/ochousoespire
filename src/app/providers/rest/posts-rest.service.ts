@@ -85,6 +85,41 @@ export class PostsRestService {
       //.subscribe(data => this.success(data), error => console.log(error));
   }
 
+  public findOne(params){
+    let headers = new Headers();
+			//console.log(formData);
+			headers.append('Content-Type', 'application/json');
+			headers.append('Accept', 'application/json');
+      let options = new RequestOptions({ headers: headers });
+
+      let urlParams: any = [];
+      let strParams = '';
+
+      let where = "";
+      if(params.where){
+        urlParams.push('where=' + JSON.stringify(params.where));
+      }
+
+      if(params.projection){
+        urlParams.push('projection=' + params.projection);
+      }
+
+      if(params.order_by){
+        urlParams.push('order_by=' + JSON.stringify(params.order_by));
+      }
+
+      if(urlParams){
+        strParams+="?";
+        strParams+= urlParams.join('&');
+      }
+
+
+      return this.http.get(Constants.API_URL +  '/post' + strParams, options)
+      .map(res => res.json());
+      //.catch(error => Observable.throw(error))
+      //.subscribe(data => this.success(data), error => console.log(error));
+  }
+
 
   save(params){
       let user = this.sessionUser.get();
@@ -96,10 +131,59 @@ export class PostsRestService {
 			headers.append('Content-Type', 'application/json');
 			headers.append('Accept', 'application/json');
       let options = new RequestOptions({ headers: headers });
-      return this.http.post(Constants.API_URL + '/posts', params, options)
+      return this.http.post(Constants.API_URL + '/postcategories', params, options)
       .map(res => res.json());
       //.catch(error => Observable.throw(error))
       //.subscribe(data => this.success(data), error => console.log(error));
+  }
+
+  saveOne(params){
+    let user = this.sessionUser.get();
+    params.data.terminal_id = user.id;
+    //debugger
+
+    let headers = new Headers();
+    //console.log(formData);
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(Constants.API_URL + '/post', params, options)
+    .map(res => res.json());
+    //.catch(error => Observable.throw(error))
+    //.subscribe(data => this.success(data), error => console.log(error));
+  }
+
+  saveCategory(params){
+    // let user = this.sessionUser.get();
+    // params.data.terminal_id = user.id;
+    //debugger
+
+    let headers = new Headers();
+    //console.log(formData);
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(Constants.API_URL + '/postcategories', params, options)
+    .map(res => res.json());
+    //.catch(error => Observable.throw(error))
+    //.subscribe(data => this.success(data), error => console.log(error));
+  }
+
+  deleteCategory(id){
+    // let user = this.sessionUser.get();
+    // params.data.terminal_id = user.id;
+    //debugger
+    let params = {where:{id:id}};
+
+    let headers = new Headers();
+    //console.log(formData);
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+    return this.http.delete(Constants.API_URL + '/postcategory?where=' + JSON.stringify(params.where),options)
+    .map(res => res.json());
+    //.catch(error => Observable.throw(error))
+    //.subscribe(data => this.success(data), error => console.log(error));
   }
 
 }

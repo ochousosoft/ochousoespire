@@ -3,7 +3,7 @@
         <h4>Form Layouts</h4>
     </div> -->
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-heading border bottom">
                     <h4 class="card-title">Editar entrada</h4>
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <div [froalaEditor] [(froalaModel)]="post.content">Hello, Froala!</div>
+                                <quill-editor [(ngModel)]="post.content"></quill-editor>
                             </div>
                         </div>
                     </div>
@@ -32,13 +32,27 @@
                         </div>
                         <div class="col-md-6 col-xs-6">
                             <div class="text-right mrg-top-5">
-                                <button (click)="back(post)" type="submit" class="btn btn-primary">Save</button>
+                                <button (click)="savePost(post)" type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </div>
                     </div>
                 </div>
-        </div>
-    </div>			
+            </div>
+        </div>	
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-heading border bottom">
+                    <h4 class="card-title">Categorias</h4>
+                </div>
+                <div class="card-block">
+                    <ul>
+                        <li *ngFor="let category of categories;let i = index;">
+                            <input type="checkbox" (click)="categoryChange(category, i)" [checked]="category.checked" />&nbsp;{{category.code}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>		
 </div>
 
 <ng2-toasty></ng2-toasty>

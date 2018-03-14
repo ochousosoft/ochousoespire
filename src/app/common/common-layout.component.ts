@@ -25,7 +25,7 @@ export class CommonLayoutComponent implements OnInit {
         private authenticationService: AuthenticationService,
         private router: Router
     ) {
-        debugger
+        // debugger
         this.Auth = authenticationService;
         this.username = this.Auth.getUserName();
 
@@ -61,7 +61,7 @@ export class CommonLayoutComponent implements OnInit {
     }
 
     logOut(){
-        debugger
+        // debugger
         this.authenticationService.destroySession();
         this.router.navigate(['authentication', 'sign-in']);
     }

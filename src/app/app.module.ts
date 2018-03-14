@@ -26,10 +26,11 @@ import { AuthGuard } from './guards/index';
 import { AlertService } from './providers/alert.service';
 import { AuthenticationService } from './providers/authentication.service';
 import { UserService } from './providers/user.service';
-
+//Rest Services
 import { Constants } from './providers/config/constants';
 import { LoginRestService } from './providers/rest/login-rest.service';
 import { PostsRestService } from './providers/rest/posts-rest.service';
+import { CategoriesRestService } from './providers/rest/categories-rest.service';
 
 import { SessionUserMem } from './providers/memory/session-user.memory';
 
@@ -70,7 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         UserService,
         LoginRestService,
         PostsRestService,
-
+        CategoriesRestService,
 
         SessionUserMem
     ],

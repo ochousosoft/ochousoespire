@@ -8,7 +8,7 @@ export class Constants {
   }
 
 
-  //public static API_URL = 'https://193.70.90.65:8013/server/api';
+  //public static API_URL = 'http://ochouso.gal:8013/server/api';
   public static API_URL = 'http://localhost:8013/server/api';
 
 }
